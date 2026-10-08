@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roadmap: Статистически анализ на зависимости</title>
+<style>
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 0; padding: 20px; background-color: #f4f7f6; color: #333; }
+    .container { max-width: 900px; margin: auto; }
+    h1 { text-align: center; color: #2c3e50; margin-bottom: 40px; }
+    .week-card { background: #fff; padding: 20px 30px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-left: 5px solid #3498db; }
+    .week-card h2 { margin-top: 0; color: #2980b9; font-size: 1.5em; border-bottom: 2px solid #ecf0f1; padding-bottom: 10px; }
+    ul { list-style-type: none; padding: 0; }
+    li { margin-bottom: 15px; padding: 12px; background-color: #fdfdfd; border: 1px solid #eee; border-radius: 5px; display: flex; flex-direction: column; transition: background 0.2s; }
+    li:hover { background-color: #f8fcfd; }
+    .task-header { display: flex; align-items: center; }
+    input[type="checkbox"] { margin-right: 15px; width: 20px; height: 20px; cursor: pointer; accent-color: #27ae60; }
+    .links { margin-top: 8px; margin-left: 35px; }
+    .link-btn { display: inline-block; padding: 6px 12px; margin-right: 10px; margin-bottom: 5px; text-decoration: none; border-radius: 4px; font-size: 0.9em; font-weight: bold; transition: opacity 0.3s; }
+    .link-btn:hover { opacity: 0.8; }
+    .khan-link { background-color: #e8f5e9; color: #2e7d32; border: 1px solid #c8e6c9; }
+    .yt-link { background-color: #ffebee; color: #c62828; border: 1px solid #ffcdd2; }
+    .concept-text { font-size: 1.1em; font-weight: 500; color: #34495e; cursor: pointer; }
+    .checked-text { text-decoration: line-through; color: #95a5a6; }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>План за подготовка: Статистически анализ</h1>
+    
+    <div class="week-card">
+        <h2>Седмица 1: Теоретични (вероятностни) разпределения</h2>
+        <ul>
+            <li>
+                <div class="task-header">
+                    <input type="checkbox" id="w1-1">
+                    <label for="w1-1" class="concept-text">Основи на вероятностите (Условна вероятност, теореми за събиране/умножение)</label>
+                </div>
+                <div class="links">
+                    <a href="https://bg.khanacademy.org/math/6-klas/x8f4872fe3845cd98:elementi-ot-veroyatnosti-i-statistika/x8f4872fe3845cd98:veroyatnost-sluchaino-sabitie/a/probability-the-basics" class="link-btn khan-link" target="_blank">📚 Кан Академия: Увод във вероятностите</a>
+                </div>
+            </li>
+            <li>
+                <div class="task-header">
+                    <input type="checkbox" id="w1-2">
+                    <label for="w1-2" class="concept-text">Теорема на Бейс</label>
+                </div>
+                <div class="links">
+                    <a href="https://bg.khanacademy.org/math/12-klas-profil-modul-4/x2e854140bd6d705b:veroyatnost/x2e854140bd6d705b:formula-na-beis/v/bayes-theorem" class="link-btn khan-link" target="_blank">📚 Кан Академия: Теорема на Бейс</a>
+                </div>
+            </li>
+            <li>
+                <div class="task-header">
+                    <input type="checkbox" id="w1-3">
+                    <label for="w1-3" class="concept-text">Интегрално смятане (за непрекъснати разпределения)</label>
+                </div>
+                <div class="links">
+                    <a href="https://bg.khanacademy.org/math/integral-calculus/ic-integration" class="link-btn khan-link" target="_blank">📚 Кан Академия: Интеграли</a>
+                </div>
+            </li>
+            <li>
+                <div class="task-header">
+                    <input type="checkbox" id="w1-4">
+                    <label for="w1-4" class="concept-text">Практика: Генериране на база данни и статистическо разпределение</label>
+                </div>
+                <div class="links">
+                    <a href="https://www.youtube.com/watch?v=1PE0WW0JxZs" class="link-btn yt-link" target="_blank">🎥 статистика.бг (YouTube)</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="week-card">
+        <h2>Седмица 2: Статистическа оценка на параметри</h2>
+        <ul>
+            <li>
+                <div class="task-header">
+                    <input type="checkbox" id="w2-1">
+                    <label for="w2-1" class="concept-text">Производни на функция (за екстремуми и метод на макс. правдоподобие)</label>
+                </div>
+                <div class="links">
+                    <a href="https://bg.khanacademy.org/math/differential-calculus/dc-diff-intro" class="link-btn khan-link" target="_blank">📚 Кан Академия: Производни</a>
+                </div>
+            </li>
+            <li>
+                <div class="task-header">
+                    <input type="checkbox" id="w2-2">
+                    <label for="w2-2" class="concept-text">Математическо очакване и дисперсия</label>
+                </div>
+                <div class="links">
+                    <a href="https://bg.khanacademy.org/math/statistics-probability" class="link-btn khan-link" target="_blank">📚 Кан Академия: Очаквана стойност</a>
+                </div>
+            </li>
+            <li>
+                <div class="task-header">
+                    <input type="checkbox" id="w2-3">
+                    <label for="w2-3" class="concept-text">Практика: Оценка на параметри, стохастични грешки, доверителен интервал</label>
+                </div>
+                <div class="links">
+                    <a href="https://www.youtube.com/watch?v=cUsd18EJT6o" class="link-btn yt-link" target="_blank">🎥 статистика.бг (YouTube)</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="week-card">
+        <h2>Седмица 3: Статистическа проверка на хипотези</h2>
+        <ul>
+            <li>
+                <div class="task-header">
+                    <input type="checkbox" id="w3-1">
+                    <label for="w3-1" class="concept-text">P-стойност (p-value) и ниво на значимост (α)</label>
+                </div>
+                <div class="links">
+                    <a href="https://bg.khanacademy.org/math/statistics-probability" class="link-btn khan-link" target="_blank">📚 Кан Академия: P-стойност и значимост</a>
+                </div>
+            </li>
+            <li>
+                <div class="task-header">
+                    <input type="checkbox" id="w3-2">
+                    <label for="w3-2" class="concept-text">Z-тест и T-тест (Интервали за средно аритметично)</label>
+                </div>
+                <div class="links">
+                    <a href="https://bg.khanacademy.org/math/statistics-probability" class="link-btn khan-link" target="_blank">📚 Кан Академия: Z-тест</a>
+                </div>
+            </li>
+            <li>
+                <div class="task-header">
+                    <input type="checkbox" id="w3-3">
+                    <label for="w3-3" class="concept-text">Практика: Проверка на хипотези за средна и относителен дял</label>
+                </div>
+                <div class="links">
+                    <a href="https://www.youtube.com/watch?v=o-XEjF0VRus" class="link-btn yt-link" target="_blank">🎥 статистика.бг (YouTube)</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="week-card">
+        <h2>Седмица 4: Изследване на връзки при номиналната и ординалната скала</h2>
+        <ul>
+            <li>
+                <div class="task-header">
+                    <input type="checkbox" id="w4-1">
+                    <label for="w4-1" class="concept-text">Знак за сума (Сигма Σ)</label>
+                </div>
+                <div class="links">
+                    <a href="https://bg.khanacademy.org/math/integral-calculus/ic-integration/ic-summation-notation/a/review-summation-notation" class="link-btn khan-link" target="_blank">📚 Кан Академия: Знак Сигма (статия)</a>
+                    <a href="https://bg.khanacademy.org/math/10-klas/x3076d29e95acc119:za-naprednali-10-klas/x3076d29e95acc119:aritmetichna-progresiya-za-naprednali/v/sigma-notation-sum" class="link-btn khan-link" target="_blank">📚 Кан Академия: Знак Сигма (видео)</a>
+                </div>
+            </li>
+            <li>
+                <div class="task-header">
+                    <input type="checkbox" id="w4-2">
+                    <label for="w4-2" class="concept-text">Практика: Хи-квадрат анализ</label>
+                </div>
+                <div class="links">
+                    <a href="https://www.youtube.com/watch?v=kSqH1r8UQEQ" class="link-btn yt-link" target="_blank">🎥 статистика.бг (YouTube)</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="week-card">
+        <h2>Седмица 5: Дисперсионен анализ (ANOVA)</h2>
+        <ul>
+            <li>
+                <div class="task-header">
+                    <input type="checkbox" id="w5-1">
+                    <label for="w5-1" class="concept-text">Дисперсия и стандартно отклонение (Sum of Squares)</label>
+                </div>
+                <div class="links">
+                    <a href="https://bg.khanacademy.org/math/statistics-probability/summarizing-quantitative-data/variance-standard-deviation-population/a/calculating-standard-deviation-step-by-step" class="link-btn khan-link" target="_blank">📚 Кан Академия: Изчисляване на стандартно отклонение</a>
+                    <a href="https://bg.khanacademy.org/math/statistics-probability/summarizing-quantitative-data/variance-standard-deviation-sample/a/population-and-sample-standard-deviation-review" class="link-btn khan-link" target="_blank">📚 Кан Академия: Дисперсия</a>
+                </div>
+            </li>
+            <li>
+                <div class="task-header">
+                    <input type="checkbox" id="w5-2">
+                    <label for="w5-2" class="concept-text">Практика: Дисперсионен анализ</label>
+                </div>
+                <div class="links">
+                    <a href="https://www.youtube.com/watch?v=NI_sR89F-X0" class="link-btn yt-link" target="_blank">🎥 статистика.бг (YouTube)</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="week-card">
+        <h2>Седмица 6: Единична линейна регресия</h2>
+        <ul>
+            <li>
+                <div class="task-header">
+                    <input type="checkbox" id="w6-1">
+                    <label for="w6-1" class="concept-text">Уравнение на права и линейни функции</label>
+                </div>
+                <div class="links">
+                    <a href="https://bg.khanacademy.org/math/9-klas/xee41df55c1c831f0:sistemi-lineyni-uravneniya-s-dve-neizvestni/xee41df55c1c831f0:lineyni-uravneniya-s-dve-neizvestni/v/2-variable-linear-equations-graphs" class="link-btn khan-link" target="_blank">📚 Кан Академия: Уравнения с две неизвестни</a>
+                </div>
+            </li>
+            <li>
+                <div class="task-header">
+                    <input type="checkbox" id="w6-2">
+                    <label for="w6-2" class="concept-text">Въведение в матриците (за матричния подход)</label>
+                </div>
+                <div class="links">
+                    <a href="https://bg.khanacademy.org/math/precalculus/x9e81a4f98389efdf:matrices" class="link-btn khan-link" target="_blank">📚 Кан Академия: Матрици</a>
+                </div>
+            </li>
+            <li>
+                <div class="task-header">
+                    <input type="checkbox" id="w6-3">
+                    <label for="w6-3" class="concept-text">Практика: Регресионен и корелационен анализ</label>
+                </div>
+                <div class="links">
+                    <a href="https://www.youtube.com/watch?v=5jaVp4ORy0U" class="link-btn yt-link" target="_blank">🎥 статистика.бг (YouTube)</a>
+                    <a href="https://www.youtube.com/watch?v=YktpDVsVpms" class="link-btn yt-link" target="_blank">🎥 Иконометрия - Линеен регресионен модел</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="week-card">
+        <h2>Седмица 7: Множествена линейна регресия</h2>
+        <ul>
+            <li>
+                <div class="task-header">
+                    <input type="checkbox" id="w7-1">
+                    <label for="w7-1" class="concept-text">Системи линейни уравнения</label>
+                </div>
+                <div class="links">
+                    <a href="https://bg.khanacademy.org/math/9-klas/xee41df55c1c831f0:sistemi-lineyni-uravneniya-s-dve-neizvestni/xee41df55c1c831f0:broy-resheniya-na-sistema-lineyni-uravneniya/v/consistent-and-inconsistent-systems" class="link-btn khan-link" target="_blank">📚 Кан Академия: Системи уравнения</a>
+                </div>
+            </li>
+            <li>
+                <div class="task-header">
+                    <input type="checkbox" id="w7-2">
+                    <label for="w7-2" class="concept-text">Практика: Верификация на иконометричния модел</label>
+                </div>
+                <div class="links">
+                    <a href="https://www.youtube.com/watch?v=vMEkgZni1mE" class="link-btn yt-link" target="_blank">🎥 статистика.бг (YouTube)</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="week-card">
+        <h2>Седмица 8: Корелационен анализ</h2>
+        <ul>
+            <li>
+                <div class="task-header">
+                    <input type="checkbox" id="w8-1">
+                    <label for="w8-1" class="concept-text">Ковариация, съвместно изменение и изолация на променливи</label>
+                </div>
+                <div class="links">
+                    <span style="font-size: 0.9em; color: #7f8c8d; margin-left: 5px;">(Прилагане на знанията от дисперсия и функции на няколко променливи)</span>
+                </div>
+            </li>
+            <li>
+                <div class="task-header">
+                    <input type="checkbox" id="w8-2">
+                    <label for="w8-2" class="concept-text">Практика: Регресионен и корелационен анализ</label>
+                </div>
+                <div class="links">
+                    <a href="https://www.youtube.com/watch?v=5jaVp4ORy0U" class="link-btn yt-link" target="_blank">🎥 статистика.бг (YouTube)</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    // Save checkbox states in localStorage
+    document.addEventListener("DOMContentLoaded", () => {
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        
+        checkboxes.forEach(box => {
+            const label = box.nextElementSibling;
+            
+            // Function to toggle text styling
+            const toggleStyle = (isChecked) => {
+                if(isChecked) {
+                    label.classList.add("checked-text");
+                } else {
+                    label.classList.remove("checked-text");
+                }
+            };
+
+            // Load saved state
+            const savedState = localStorage.getItem(box.id);
+            if(savedState === "true") {
+                box.checked = true;
+                toggleStyle(true);
+            }
+
+            // Save state on change
+            box.addEventListener("change", (e) => {
+                localStorage.setItem(e.target.id, e.target.checked);
+                toggleStyle(e.target.checked);
+            });
+        });
+    });
+</script>
+</body>
+</html>
