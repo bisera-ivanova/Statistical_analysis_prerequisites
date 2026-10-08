@@ -1,305 +1,171 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Roadmap: Статистически анализ на зависимости</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Статистически анализ на зависимости — план за 8 седмици</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:wght@600;700&display=swap&subset=cyrillic" rel="stylesheet">
 <style>
-    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 0; padding: 20px; background-color: #f4f7f6; color: #333; }
-    .container { max-width: 900px; margin: auto; }
-    h1 { text-align: center; color: #2c3e50; margin-bottom: 40px; }
-    .week-card { background: #fff; padding: 20px 30px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-left: 5px solid #3498db; }
-    .week-card h2 { margin-top: 0; color: #2980b9; font-size: 1.5em; border-bottom: 2px solid #ecf0f1; padding-bottom: 10px; }
-    ul { list-style-type: none; padding: 0; }
-    li { margin-bottom: 15px; padding: 12px; background-color: #fdfdfd; border: 1px solid #eee; border-radius: 5px; display: flex; flex-direction: column; transition: background 0.2s; }
-    li:hover { background-color: #f8fcfd; }
-    .task-header { display: flex; align-items: center; }
-    input[type="checkbox"] { margin-right: 15px; width: 20px; height: 20px; cursor: pointer; accent-color: #27ae60; }
-    .links { margin-top: 8px; margin-left: 35px; }
-    .link-btn { display: inline-block; padding: 6px 12px; margin-right: 10px; margin-bottom: 5px; text-decoration: none; border-radius: 4px; font-size: 0.9em; font-weight: bold; transition: opacity 0.3s; }
-    .link-btn:hover { opacity: 0.8; }
-    .khan-link { background-color: #e8f5e9; color: #2e7d32; border: 1px solid #c8e6c9; }
-    .yt-link { background-color: #ffebee; color: #c62828; border: 1px solid #ffcdd2; }
-    .concept-text { font-size: 1.1em; font-weight: 500; color: #34495e; cursor: pointer; }
-    .checked-text { text-decoration: line-through; color: #95a5a6; }
+:root{--bg:#eef2f5;--card:#fff;--ink:#16243a;--mute:#5b6b80;--line:#d3dce5;--acc:#1f6f8b;--acc2:#e0a526;--ok:#2e8b57;--chip:#e3edf3;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1824;--card:#172435;--ink:#e6edf5;--mute:#9bacbf;--line:#2a3b50;--acc:#5bb6d4;--acc2:#e8b84a;--ok:#5fc78a;--chip:#1f3248}}
+:root[data-theme="dark"]{--bg:#0f1824;--card:#172435;--ink:#e6edf5;--mute:#9bacbf;--line:#2a3b50;--acc:#5bb6d4;--acc2:#e8b84a;--ok:#5fc78a;--chip:#1f3248}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 "IBM Plex Sans",system-ui,sans-serif;
+background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:28px 28px;background-attachment:fixed}
+body:before{content:"";position:fixed;inset:0;background:var(--bg);opacity:.86;z-index:-1}
+main{max-width:860px;margin:0 auto;padding:24px 16px 64px}
+h1{font:700 clamp(28px,6vw,44px)/1.1 "Source Serif 4",Georgia,serif;margin:8px 0 10px}
+h2{font:700 21px/1.25 "Source Serif 4",Georgia,serif;margin:0}
+.lead{color:var(--mute);max-width:62ch;margin:0 0 20px}
+.top{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;margin-bottom:22px;position:sticky;top:env(safe-area-inset-top,0px);z-index:5}
+.bar{height:10px;background:var(--chip);border-radius:6px;overflow:hidden;margin:8px 0 4px}
+.bar i{display:block;height:100%;width:0;background:var(--acc2);transition:width .3s}
+.row{display:flex;gap:10px;justify-content:space-between;align-items:center;flex-wrap:wrap;font-size:14px;color:var(--mute)}
+button{font:inherit;font-size:13px;background:none;border:1px solid var(--line);color:var(--ink);border-radius:6px;padding:4px 10px;cursor:pointer}
+button:hover{border-color:var(--acc)}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;margin-bottom:14px}
+summary{cursor:pointer;padding:14px 16px;list-style:none;display:flex;gap:12px;align-items:center}
+summary::-webkit-details-marker{display:none}
+.wk{flex:none;min-width:84px;font-weight:600;color:var(--acc)}
+.sum{flex:1}.sum small{display:block;color:var(--mute);font-size:13px}
+.cnt{font-size:13px;color:var(--mute);white-space:nowrap}
+.body{padding:2px 16px 14px}
+.item{border-top:1px solid var(--line);padding:12px 0}
+.item label{display:flex;gap:10px;align-items:flex-start;cursor:pointer;font-weight:600}
+.item input{width:20px;height:20px;margin-top:2px;accent-color:var(--ok);flex:none}
+.item.done label span{text-decoration:line-through;color:var(--mute)}
+.d{margin:4px 0 8px 30px;color:var(--mute);font-size:14.5px}
+.ls{margin:0 0 0 30px;display:flex;flex-wrap:wrap;gap:6px}
+.ls a{font-size:13px;color:var(--ink);background:var(--chip);border-radius:6px;padding:3px 9px;text-decoration:none;border:1px solid transparent}
+.ls a:hover{border-color:var(--acc)}
+.ls a b{font-weight:600;color:var(--acc)}
+.m{display:inline-block;margin-left:6px;font-size:12px;font-weight:500;color:var(--mute);border:1px solid var(--line);border-radius:5px;padding:0 6px}
+footer{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;margin-top:22px}
+footer ul{margin:8px 0 0;padding-left:20px}footer a{color:var(--acc)}
+.note{font-size:13px;color:var(--mute);margin-top:14px}
 </style>
 </head>
 <body>
-<div class="container">
-    <h1>План за подготовка: Статистически анализ</h1>
-    
-    <div class="week-card">
-        <h2>Седмица 1: Теоретични (вероятностни) разпределения</h2>
-        <ul>
-            <li>
-                <div class="task-header">
-                    <input type="checkbox" id="w1-1">
-                    <label for="w1-1" class="concept-text">Основи на вероятностите (Условна вероятност, теореми за събиране/умножение)</label>
-                </div>
-                <div class="links">
-                    <a href="https://bg.khanacademy.org/math/6-klas/x8f4872fe3845cd98:elementi-ot-veroyatnosti-i-statistika/x8f4872fe3845cd98:veroyatnost-sluchaino-sabitie/a/probability-the-basics" class="link-btn khan-link" target="_blank">📚 Кан Академия: Увод във вероятностите</a>
-                </div>
-            </li>
-            <li>
-                <div class="task-header">
-                    <input type="checkbox" id="w1-2">
-                    <label for="w1-2" class="concept-text">Теорема на Бейс</label>
-                </div>
-                <div class="links">
-                    <a href="https://bg.khanacademy.org/math/12-klas-profil-modul-4/x2e854140bd6d705b:veroyatnost/x2e854140bd6d705b:formula-na-beis/v/bayes-theorem" class="link-btn khan-link" target="_blank">📚 Кан Академия: Теорема на Бейс</a>
-                </div>
-            </li>
-            <li>
-                <div class="task-header">
-                    <input type="checkbox" id="w1-3">
-                    <label for="w1-3" class="concept-text">Интегрално смятане (за непрекъснати разпределения)</label>
-                </div>
-                <div class="links">
-                    <a href="https://bg.khanacademy.org/math/integral-calculus/ic-integration" class="link-btn khan-link" target="_blank">📚 Кан Академия: Интеграли</a>
-                </div>
-            </li>
-            <li>
-                <div class="task-header">
-                    <input type="checkbox" id="w1-4">
-                    <label for="w1-4" class="concept-text">Практика: Генериране на база данни и статистическо разпределение</label>
-                </div>
-                <div class="links">
-                    <a href="https://www.youtube.com/watch?v=1PE0WW0JxZs" class="link-btn yt-link" target="_blank">🎥 статистика.бг (YouTube)</a>
-                </div>
-            </li>
-        </ul>
-    </div>
-
-    <div class="week-card">
-        <h2>Седмица 2: Статистическа оценка на параметри</h2>
-        <ul>
-            <li>
-                <div class="task-header">
-                    <input type="checkbox" id="w2-1">
-                    <label for="w2-1" class="concept-text">Производни на функция (за екстремуми и метод на макс. правдоподобие)</label>
-                </div>
-                <div class="links">
-                    <a href="https://bg.khanacademy.org/math/differential-calculus/dc-diff-intro" class="link-btn khan-link" target="_blank">📚 Кан Академия: Производни</a>
-                </div>
-            </li>
-            <li>
-                <div class="task-header">
-                    <input type="checkbox" id="w2-2">
-                    <label for="w2-2" class="concept-text">Математическо очакване и дисперсия</label>
-                </div>
-                <div class="links">
-                    <a href="https://bg.khanacademy.org/math/statistics-probability" class="link-btn khan-link" target="_blank">📚 Кан Академия: Очаквана стойност</a>
-                </div>
-            </li>
-            <li>
-                <div class="task-header">
-                    <input type="checkbox" id="w2-3">
-                    <label for="w2-3" class="concept-text">Практика: Оценка на параметри, стохастични грешки, доверителен интервал</label>
-                </div>
-                <div class="links">
-                    <a href="https://www.youtube.com/watch?v=cUsd18EJT6o" class="link-btn yt-link" target="_blank">🎥 статистика.бг (YouTube)</a>
-                </div>
-            </li>
-        </ul>
-    </div>
-
-    <div class="week-card">
-        <h2>Седмица 3: Статистическа проверка на хипотези</h2>
-        <ul>
-            <li>
-                <div class="task-header">
-                    <input type="checkbox" id="w3-1">
-                    <label for="w3-1" class="concept-text">P-стойност (p-value) и ниво на значимост (α)</label>
-                </div>
-                <div class="links">
-                    <a href="https://bg.khanacademy.org/math/statistics-probability" class="link-btn khan-link" target="_blank">📚 Кан Академия: P-стойност и значимост</a>
-                </div>
-            </li>
-            <li>
-                <div class="task-header">
-                    <input type="checkbox" id="w3-2">
-                    <label for="w3-2" class="concept-text">Z-тест и T-тест (Интервали за средно аритметично)</label>
-                </div>
-                <div class="links">
-                    <a href="https://bg.khanacademy.org/math/statistics-probability" class="link-btn khan-link" target="_blank">📚 Кан Академия: Z-тест</a>
-                </div>
-            </li>
-            <li>
-                <div class="task-header">
-                    <input type="checkbox" id="w3-3">
-                    <label for="w3-3" class="concept-text">Практика: Проверка на хипотези за средна и относителен дял</label>
-                </div>
-                <div class="links">
-                    <a href="https://www.youtube.com/watch?v=o-XEjF0VRus" class="link-btn yt-link" target="_blank">🎥 статистика.бг (YouTube)</a>
-                </div>
-            </li>
-        </ul>
-    </div>
-
-    <div class="week-card">
-        <h2>Седмица 4: Изследване на връзки при номиналната и ординалната скала</h2>
-        <ul>
-            <li>
-                <div class="task-header">
-                    <input type="checkbox" id="w4-1">
-                    <label for="w4-1" class="concept-text">Знак за сума (Сигма Σ)</label>
-                </div>
-                <div class="links">
-                    <a href="https://bg.khanacademy.org/math/integral-calculus/ic-integration/ic-summation-notation/a/review-summation-notation" class="link-btn khan-link" target="_blank">📚 Кан Академия: Знак Сигма (статия)</a>
-                    <a href="https://bg.khanacademy.org/math/10-klas/x3076d29e95acc119:za-naprednali-10-klas/x3076d29e95acc119:aritmetichna-progresiya-za-naprednali/v/sigma-notation-sum" class="link-btn khan-link" target="_blank">📚 Кан Академия: Знак Сигма (видео)</a>
-                </div>
-            </li>
-            <li>
-                <div class="task-header">
-                    <input type="checkbox" id="w4-2">
-                    <label for="w4-2" class="concept-text">Практика: Хи-квадрат анализ</label>
-                </div>
-                <div class="links">
-                    <a href="https://www.youtube.com/watch?v=kSqH1r8UQEQ" class="link-btn yt-link" target="_blank">🎥 статистика.бг (YouTube)</a>
-                </div>
-            </li>
-        </ul>
-    </div>
-
-    <div class="week-card">
-        <h2>Седмица 5: Дисперсионен анализ (ANOVA)</h2>
-        <ul>
-            <li>
-                <div class="task-header">
-                    <input type="checkbox" id="w5-1">
-                    <label for="w5-1" class="concept-text">Дисперсия и стандартно отклонение (Sum of Squares)</label>
-                </div>
-                <div class="links">
-                    <a href="https://bg.khanacademy.org/math/statistics-probability/summarizing-quantitative-data/variance-standard-deviation-population/a/calculating-standard-deviation-step-by-step" class="link-btn khan-link" target="_blank">📚 Кан Академия: Изчисляване на стандартно отклонение</a>
-                    <a href="https://bg.khanacademy.org/math/statistics-probability/summarizing-quantitative-data/variance-standard-deviation-sample/a/population-and-sample-standard-deviation-review" class="link-btn khan-link" target="_blank">📚 Кан Академия: Дисперсия</a>
-                </div>
-            </li>
-            <li>
-                <div class="task-header">
-                    <input type="checkbox" id="w5-2">
-                    <label for="w5-2" class="concept-text">Практика: Дисперсионен анализ</label>
-                </div>
-                <div class="links">
-                    <a href="https://www.youtube.com/watch?v=NI_sR89F-X0" class="link-btn yt-link" target="_blank">🎥 статистика.бг (YouTube)</a>
-                </div>
-            </li>
-        </ul>
-    </div>
-
-    <div class="week-card">
-        <h2>Седмица 6: Единична линейна регресия</h2>
-        <ul>
-            <li>
-                <div class="task-header">
-                    <input type="checkbox" id="w6-1">
-                    <label for="w6-1" class="concept-text">Уравнение на права и линейни функции</label>
-                </div>
-                <div class="links">
-                    <a href="https://bg.khanacademy.org/math/9-klas/xee41df55c1c831f0:sistemi-lineyni-uravneniya-s-dve-neizvestni/xee41df55c1c831f0:lineyni-uravneniya-s-dve-neizvestni/v/2-variable-linear-equations-graphs" class="link-btn khan-link" target="_blank">📚 Кан Академия: Уравнения с две неизвестни</a>
-                </div>
-            </li>
-            <li>
-                <div class="task-header">
-                    <input type="checkbox" id="w6-2">
-                    <label for="w6-2" class="concept-text">Въведение в матриците (за матричния подход)</label>
-                </div>
-                <div class="links">
-                    <a href="https://bg.khanacademy.org/math/precalculus/x9e81a4f98389efdf:matrices" class="link-btn khan-link" target="_blank">📚 Кан Академия: Матрици</a>
-                </div>
-            </li>
-            <li>
-                <div class="task-header">
-                    <input type="checkbox" id="w6-3">
-                    <label for="w6-3" class="concept-text">Практика: Регресионен и корелационен анализ</label>
-                </div>
-                <div class="links">
-                    <a href="https://www.youtube.com/watch?v=5jaVp4ORy0U" class="link-btn yt-link" target="_blank">🎥 статистика.бг (YouTube)</a>
-                    <a href="https://www.youtube.com/watch?v=YktpDVsVpms" class="link-btn yt-link" target="_blank">🎥 Иконометрия - Линеен регресионен модел</a>
-                </div>
-            </li>
-        </ul>
-    </div>
-
-    <div class="week-card">
-        <h2>Седмица 7: Множествена линейна регресия</h2>
-        <ul>
-            <li>
-                <div class="task-header">
-                    <input type="checkbox" id="w7-1">
-                    <label for="w7-1" class="concept-text">Системи линейни уравнения</label>
-                </div>
-                <div class="links">
-                    <a href="https://bg.khanacademy.org/math/9-klas/xee41df55c1c831f0:sistemi-lineyni-uravneniya-s-dve-neizvestni/xee41df55c1c831f0:broy-resheniya-na-sistema-lineyni-uravneniya/v/consistent-and-inconsistent-systems" class="link-btn khan-link" target="_blank">📚 Кан Академия: Системи уравнения</a>
-                </div>
-            </li>
-            <li>
-                <div class="task-header">
-                    <input type="checkbox" id="w7-2">
-                    <label for="w7-2" class="concept-text">Практика: Верификация на иконометричния модел</label>
-                </div>
-                <div class="links">
-                    <a href="https://www.youtube.com/watch?v=vMEkgZni1mE" class="link-btn yt-link" target="_blank">🎥 статистика.бг (YouTube)</a>
-                </div>
-            </li>
-        </ul>
-    </div>
-
-    <div class="week-card">
-        <h2>Седмица 8: Корелационен анализ</h2>
-        <ul>
-            <li>
-                <div class="task-header">
-                    <input type="checkbox" id="w8-1">
-                    <label for="w8-1" class="concept-text">Ковариация, съвместно изменение и изолация на променливи</label>
-                </div>
-                <div class="links">
-                    <span style="font-size: 0.9em; color: #7f8c8d; margin-left: 5px;">(Прилагане на знанията от дисперсия и функции на няколко променливи)</span>
-                </div>
-            </li>
-            <li>
-                <div class="task-header">
-                    <input type="checkbox" id="w8-2">
-                    <label for="w8-2" class="concept-text">Практика: Регресионен и корелационен анализ</label>
-                </div>
-                <div class="links">
-                    <a href="https://www.youtube.com/watch?v=5jaVp4ORy0U" class="link-btn yt-link" target="_blank">🎥 статистика.бг (YouTube)</a>
-                </div>
-            </li>
-        </ul>
-    </div>
+<main>
+<h1>Статистически анализ на зависимости</h1>
+<p class="lead">План за 8 седмици: математиката, която трябва да знаеш, свързана с всяка глава от конспекта. Отметките се пазят в този браузър.</p>
+<div class="top">
+<div class="row"><strong id="pt" style="color:var(--ink)">0 от 0 теми</strong><span><button id="exp">Разгъни всичко</button> <button id="rst">Нулирай</button></span></div>
+<div class="bar"><i id="pb"></i></div>
 </div>
-
+<div id="app"></div>
+<footer>
+<strong>Безплатни ресурси за целия курс</strong>
+<ul>
+<li><a href="https://www.khanacademy.org/math/statistics-probability" target="_blank" rel="noopener">Khan Academy — Statistics and probability</a> (видеа, статии, задачи)</li>
+<li><a href="https://www.khanacademy.org/math/linear-algebra" target="_blank" rel="noopener">Khan Academy — Linear algebra</a></li>
+<li><a href="https://online.stat.psu.edu/stat415/" target="_blank" rel="noopener">Penn State STAT 415 — Inference</a> и <a href="https://online.stat.psu.edu/stat501/" target="_blank" rel="noopener">STAT 501 — Regression</a></li>
+<li><a href="https://www.openintro.org/book/os/" target="_blank" rel="noopener">OpenIntro Statistics</a> — безплатен учебник с упражнения</li>
+<li><a href="https://seeing-theory.brown.edu/" target="_blank" rel="noopener">Seeing Theory</a> — интерактивни визуализации</li>
+<li><a href="https://www.desmos.com/calculator" target="_blank" rel="noopener">Desmos</a> — графики на функции</li>
+<li><a href="https://www.youtube.com/results?search_query=%D1%81%D1%82%D0%B0%D1%82%D0%B8%D1%81%D1%82%D0%B8%D0%BA%D0%B0.%D0%B1%D0%B3" target="_blank" rel="noopener">Канал „статистика.бг“</a> — търси по тема</li>
+</ul>
+<p class="note">Връзките с етикет „търсене“ водят към резултати от търсене в съответния сайт, за да не се натъкнеш на мъртви линкове. Първите резултати обикновено са най-подходящите.</p>
+</footer>
+</main>
 <script>
-    // Save checkbox states in localStorage
-    document.addEventListener("DOMContentLoaded", () => {
-        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-        
-        checkboxes.forEach(box => {
-            const label = box.nextElementSibling;
-            
-            // Function to toggle text styling
-            const toggleStyle = (isChecked) => {
-                if(isChecked) {
-                    label.classList.add("checked-text");
-                } else {
-                    label.classList.remove("checked-text");
-                }
-            };
-
-            // Load saved state
-            const savedState = localStorage.getItem(box.id);
-            if(savedState === "true") {
-                box.checked = true;
-                toggleStyle(true);
-            }
-
-            // Save state on change
-            box.addEventListener("change", (e) => {
-                localStorage.setItem(e.target.id, e.target.checked);
-                toggleStyle(e.target.checked);
-            });
-        });
-    });
+var enc=encodeURIComponent;
+var K={
+yt:["YouTube (търсене)",function(q){return"https://www.youtube.com/results?search_query="+enc(q)}],
+ka:["Khan Academy (търсене)",function(q){return"https://www.khanacademy.org/search?page_search_query="+enc(q)}],
+sb:["статистика.бг",function(q){return"https://www.youtube.com/results?search_query="+enc("статистика.бг "+q)}],
+sq:["StatQuest",function(q){return"https://www.youtube.com/results?search_query="+enc("StatQuest "+q)}],
+b3:["3Blue1Brown",function(q){return"https://www.youtube.com/results?search_query="+enc("3Blue1Brown "+q)}],
+wk:["Уикипедия",function(q){return"https://bg.wikipedia.org/w/index.php?search="+enc(q)}],
+ps:["Penn State (търсене)",function(q){return"https://www.google.com/search?q="+enc("site:online.stat.psu.edu "+q)}]
+};
+var W=[
+["Седмица 1","Математически основи","Σ, функции, производни, интеграли, описателна статистика",[
+["Сигма нотация Σ","Прости и двойни суми — в сегмента за ANOVA, честоти и регресия са навсякъде.","Мат. 1",[["ka","sigma notation"],["yt","знак за сума сигма нотация"],["wk","Сума"]]],
+["Функции и уравнение на права","Наклон и пресечна точка — основата на регресионната права.","Мат. 1",[["ka","linear equations slope intercept"],["yt","линейна функция уравнение на права"]]],
+["Производни и екстремуми","Приравняване на производната на нула за намиране на минимум/максимум (МНМК, ММП).","Мат. 1",[["ka","derivatives introduction"],["b3","essence of calculus"],["yt","производна екстремуми минимум максимум"]]],
+["Частни производни","Нужни за МНМК с две и повече неизвестни параметри.","Мат. 1, 2",[["ka","partial derivatives"],["yt","частни производни функции на две променливи"]]],
+["Определен интеграл","Площ под кривата = вероятност при непрекъснатите разпределения.","Мат. 1",[["ka","definite integral area under curve"],["b3","integration and the fundamental theorem"]]],
+["Описателна статистика","Средна, медиана, дисперсия, стандартно отклонение, ковариация.","",[["ka","variance standard deviation"],["sb","описателна статистика"],["sq","standard deviation"]]]
+]],
+["Седмица 2","Теоретични разпределения","Глава 1: вероятности, дискретни и непрекъснати разпределения",[
+["Вероятност, условна вероятност, Бейс","Събиране и умножение, пълна вероятност, формула на Бейс.","Мат. 2",[["ka","conditional probability"],["ka","Bayes theorem"],["yt","теорема на Бейс вероятности"],["sq","Bayes theorem"]]],
+["Случайни величини, очакване и дисперсия","E(X), D(X), свойства на линейни комбинации.","Мат. 2",[["ka","expected value random variable"],["yt","математическо очакване дисперсия случайна величина"]]],
+["Дискретни разпределения","Биномно, Поасон, хипергеометрично.","Мат. 2",[["ka","binomial distribution"],["yt","Поасоново разпределение"],["sq","binomial distribution"]]],
+["Непрекъснати разпределения","Равномерно, експоненциално, нормално; z-трансформация.","Мат. 2",[["ka","normal distribution z-score"],["yt","нормално разпределение стандартизиране"],["sb","нормално разпределение"]]],
+["Разпределения при извадки: t, χ², F","Откъде идват и кога се ползват в тестовете.","",[["wk","Разпределение на Стюдънт"],["sq","t-distribution"],["ka","chi-square distribution"],["yt","F distribution explained"]]]
+]],
+["Седмица 3","Оценки и начало на хипотези","Глави 2 и 3: свойства на оценките, интервали, един тест",[
+["Свойства на оценките","Непристрастност, състоятелност, ефективност.","",[["yt","unbiased consistent efficient estimator"],["wk","Статистическа оценка"],["sb","оценка на параметри"]]],
+["Методи за точкови оценки","Метод на моментите, МНМК, максимално правдоподобие (производна = 0).","Мат. 1",[["sq","maximum likelihood"],["yt","метод на максималното правдоподобие"]]],
+["Интервални оценки","Доверителен интервал за средна, дял и дисперсия.","",[["ka","confidence intervals"],["sb","доверителен интервал"],["sq","confidence intervals"]]],
+["Етапи на проверката на хипотези","H0/H1, ниво на значимост α, p-стойност, грешки от I и II род.","",[["ka","significance tests p-value"],["sq","p-values"],["sb","проверка на хипотези"]]],
+["Среден и относителен дял от една извадка","z-тест и t-тест; сравнение с генерална съвкупност.","",[["ka","z-test t-test one sample mean"],["ka","hypothesis test one proportion"]]]
+]],
+["Седмица 4","Проверка на хипотези — продължение","Глава 3: две извадки, дисперсия, съгласие, непараметрични",[
+["Две независими средни","t-тест за независими извадки.","",[["ka","two sample t-test"],["sq","t-test"]]],
+["Две зависими средни","Сдвоен t-тест (разлики по двойки).","",[["ka","paired t-test"],["yt","paired t-test explained"]]],
+["Два относителни дяла","z-тест за разлика на дялове.","",[["ka","two proportions z-test"],["sb","разлика между два относителни дяла"]]],
+["Тест за стандартно отклонение / дисперсия","χ² за една дисперсия, F за две.","",[["yt","chi-square test for variance"],["yt","F test equality of variances"]]],
+["Съгласие на разпределения","χ² тест за съвпадение на емпирично и теоретично разпределение.","",[["ka","chi-square goodness of fit"],["sq","chi-square test"]]],
+["Непараметрични тестове (ординални)","Ман-Уитни, Уилкоксън, знаков тест, Крускал-Уолис.","",[["yt","Mann-Whitney Wilcoxon test explained"],["sq","Wilcoxon"],["yt","Kruskal-Wallis test"]]]
+]],
+["Седмица 5","Връзки при номинална и ординална скала","Глава 4: таблици на сключеност, мерки за сила, рангови коефициенти",[
+["Таблици на сключеност и χ² на независимост","Очаквани честоти, степени на свобода, двойни суми.","",[["ka","chi-square test for association"],["sb","изследване на връзки хи-квадрат"]]],
+["Сила на връзката при номинална скала","φ, Крамер V, Чупров, коефициент на Пирсън.","",[["yt","Cramér's V phi coefficient"],["wk","Коефициент на Крамер"]]],
+["Повече от два номинални признака","Многомерни таблици и частна сключеност (преглед).","",[["yt","multiway contingency tables chi-square"]]],
+["Ординална скала: рангови коефициенти","Спирмън, Кендал τ, Гама на Гудман-Крускал.","Мат. 1",[["sq","Spearman correlation"],["yt","Kendall tau Goodman Kruskal gamma"],["wk","Коефициент на Спирмън"]]]
+]],
+["Седмица 6","Дисперсионен анализ","Глава 5: еднофакторен и двуфакторен ANOVA",[
+["Разлагане на сумите от квадрати","SST = SSB + SSW; двойни суми.","",[["ka","ANOVA sum of squares"],["sq","ANOVA"]]],
+["Еднофакторен ANOVA и F-тест","Хипотеза за равенство на средни, таблица ANOVA.","",[["ka","one-way ANOVA"],["sb","дисперсионен анализ"]]],
+["Сила на връзката","Корелационно отношение η², детерминационен коефициент.","",[["yt","eta squared effect size ANOVA"]]],
+["Двуфакторен ANOVA — еднакви честоти","Главни ефекти и взаимодействие.","",[["yt","two-way ANOVA explained"],["sq","two-way ANOVA"]]],
+["Двуфакторен ANOVA — нееднакви честоти","Неравни обеми на клетките; претеглени суми.","",[["yt","two-way ANOVA unbalanced design"]]]
+]],
+["Седмица 7","Единична регресия и матрици","Глава 6: МНМК, нелинейна и претеглена регресия, матричен подход",[
+["МНМК за права","Изводът с частни производни; нормални уравнения.","Мат. 1, 2",[["ka","least squares regression line"],["sq","linear regression"],["sb","регресионен анализ"]]],
+["Матрици: операции, транспониране, обратна","Събиране, умножение, детерминанта, обратна матрица.","",[["ka","matrices introduction operations"],["b3","essence of linear algebra"],["yt","обратна матрица детерминанта"]]],
+["Матричен подход","B = (X′X)⁻¹X′Y, остатъци, дисперсия на оценките.","",[["yt","OLS matrix form (X'X)^-1 X'Y"],["ps","matrix regression"]]],
+["Нелинейна регресия","Линеаризация: степенна, експоненциална, логаритмична, полином.","Мат. 1",[["ka","exponential regression logarithm"],["yt","нелинейна регресия линеаризация"]]],
+["Претеглен МНМК","Хетероскедастичност и тегла.","",[["sq","weighted least squares"],["yt","weighted least squares heteroscedasticity"]]],
+["Качество и значимост на модела","R², F-тест, t-тест за коефициентите.","",[["sb","иконометрия верификация на модела"],["sq","R-squared"]]]
+]],
+["Седмица 8","Множествена регресия, корелация и преговор","Глави 7 и 8",[
+["Множествена регресия — класически подход","Система нормални уравнения, интерпретация на коефициентите.","Мат. 1, 2",[["ka","systems of equations"],["sb","множествена регресия"],["sq","multiple regression"]]],
+["Множествена регресия — матричен подход","Матрица на плана X, мултиколинеарност.","",[["yt","multiple regression matrix form multicollinearity"]]],
+["Единичен корелационен анализ","Ковариация, коефициент на Пирсън r, проверка на значимост.","",[["ka","correlation coefficient r covariance"],["sq","correlation"],["sb","корелационен анализ"]]],
+["Частни и множествен корелационен анализ","Частни коефициенти (ред 1), множествен R, корелационна матрица.","",[["yt","partial correlation explained"],["yt","multiple correlation coefficient R"]]],
+["Преговор със задачи","Реши по 3–5 задачи от всяка глава (OpenIntro, Penn State, КА).","",[["ka","statistics practice exercises"],["yt","статистика задачи решени хипотези регресия"]]]
+]]
+];
+var KEY="stat-roadmap-v1",S={};
+try{S=JSON.parse(localStorage.getItem(KEY)||"{}")}catch(e){S={}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;")}
+var app=document.getElementById("app"),total=0,h="";
+W.forEach(function(w,i){
+h+='<details data-w="'+i+'"'+(i==0?' open':'')+'><summary><span class="wk">'+w[0]+'</span><span class="sum"><b>'+esc(w[1])+'</b><small>'+esc(w[2])+'</small></span><span class="cnt" id="c'+i+'"></span></summary><div class="body">';
+w[3].forEach(function(t,j){
+var id=i+"-"+j;total++;
+h+='<div class="item" id="i'+id+'"><label><input type="checkbox" data-id="'+id+'"><span>'+esc(t[0])+(t[2]?'<em class="m">'+t[2]+'</em>':'')+'</span></label><p class="d">'+esc(t[1])+'</p><div class="ls">';
+t[3].forEach(function(r){var k=K[r[0]];h+='<a href="'+k[1](r[1])+'" target="_blank" rel="noopener"><b>'+k[0]+'</b>: '+esc(r[1])+'</a>'});
+h+='</div></div>'});
+h+='</div></details>'});
+app.innerHTML=h;
+function refresh(){
+var n=0;
+W.forEach(function(w,i){var c=0;w[3].forEach(function(t,j){var id=i+"-"+j,on=!!S[id];if(on){c++;n++}
+var it=document.getElementById("i"+id);it.classList.toggle("done",on);it.querySelector("input").checked=on});
+document.getElementById("c"+i).textContent=c+"/"+w[3].length});
+document.getElementById("pt").textContent=n+" от "+total+" теми ("+Math.round(n/total*100)+"%)";
+document.getElementById("pb").style.width=(n/total*100)+"%"}
+app.addEventListener("change",function(e){var id=e.target.getAttribute("data-id");if(!id)return;if(e.target.checked)S[id]=1;else delete S[id];save();refresh()});
+document.getElementById("rst").onclick=function(){if(confirm("Да изчистя всички отметки?")){S={};save();refresh()}};
+var open_=false;document.getElementById("exp").onclick=function(){open_=!open_;document.querySelectorAll("details").forEach(function(d){d.open=open_});this.textContent=open_?"Свий всичко":"Разгъни всичко"};
+refresh();
 </script>
 </body>
 </html>
